@@ -91,6 +91,4 @@ Upload the three files inside `sample_data`:
 
 Then click **Analyze business**.
 
-## Important note
 
-The sample company and data are fictional and created only for educational purposes.
