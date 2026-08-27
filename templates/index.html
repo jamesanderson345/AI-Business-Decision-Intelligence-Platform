@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Executive Decision Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span>DI</span><div>Decision<br>Intelligence</div></div>
+    <nav>
+      <a class="active" href="#overview">Overview</a>
+      <a href="#performance">Performance</a>
+      <a href="#feedback">Customers</a>
+      <a href="#scenario">Scenario</a>
+      <a href="#assistant">AI Assistant</a>
+    </nav>
+    
+  </aside>
+
+  <main>
+    <header>
+      <div><p class="eyebrow">EXECUTIVE COMMAND CENTER</p><h1>Business Decision Intelligence</h1></div>
+      <span id="aiStatus" class="status">AI ready after upload</span>
+    </header>
+
+    <section class="upload-card" id="overview">
+      <div><h2>Upload business files</h2><p>Sales CSV is required. Feedback CSV and market-report PDF are optional.</p></div>
+      <form id="uploadForm">
+        <label>Sales CSV <input type="file" name="sales_file" accept=".csv" required></label>
+        <label>Feedback CSV <input type="file" name="feedback_file" accept=".csv"></label>
+        <label>Market report <input type="file" name="report_file" accept=".pdf"></label>
+        <button type="submit">Analyze business</button>
+      </form>
+      <p id="message"></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="kpi-grid">
+        <article><span>Total revenue</span><strong id="revenue">-</strong><small id="revenueChange">-</small></article>
+        <article><span>Total profit</span><strong id="profit">-</strong><small id="profitChange">-</small></article>
+        <article><span>Profit margin</span><strong id="margin">-</strong><small>Overall margin</small></article>
+        <article><span>Total orders</span><strong id="orders">-</strong><small id="ordersChange">-</small></article>
+      </div>
+
+      <div class="grid-2" id="performance">
+        <article class="panel chart-panel"><div class="panel-head"><div><p class="eyebrow">PERFORMANCE</p><h2>Revenue and profit trend</h2></div></div><canvas id="trendChart"></canvas></article>
+        <article class="panel chart-panel"><div class="panel-head"><div><p class="eyebrow">MARKET</p><h2>Regional revenue</h2></div></div><canvas id="regionChart"></canvas></article>
+      </div>
+
+      <div class="grid-2" id="feedback">
+        <article class="panel"><p class="eyebrow">AI BRIEFING</p><h2>Executive summary</h2><div id="summary" class="summary"></div></article>
+        <article class="panel"><p class="eyebrow">CUSTOMERS</p><h2>Feedback intelligence</h2><div class="feedback-score"><strong id="rating">-</strong><span>Average rating<br><small id="feedbackTotal">0 responses</small></span></div><div id="sentiments" class="sentiments"></div><div id="themes" class="tags"></div></article>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel"><p class="eyebrow risk-label">ATTENTION</p><h2>Business risks</h2><ul id="risks"></ul></article>
+        <article class="panel"><p class="eyebrow opportunity-label">GROWTH</p><h2>Opportunities</h2><ul id="opportunities"></ul></article>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel" id="scenario"><p class="eyebrow">WHAT-IF PLANNER</p><h2>Scenario analysis</h2><form id="scenarioForm" class="scenario-form"><label>Revenue growth (%)<input id="revenueGrowth" type="number" value="10" step="1"></label><label>Cost growth (%)<input id="costGrowth" type="number" value="6" step="1"></label><button>Calculate scenario</button></form><div id="scenarioResult" class="scenario-result">Enter assumptions to see projected results.</div></article>
+        <article class="panel" id="assistant"><p class="eyebrow">STRATEGY COPILOT</p><h2>Ask the AI assistant</h2><div id="chatBox" class="chat-box">Ask a question such as: Why did profit change?</div><form id="chatForm" class="chat-form"><input id="question" placeholder="Ask about performance, risks or opportunities..." required><button>Ask</button></form></article>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
