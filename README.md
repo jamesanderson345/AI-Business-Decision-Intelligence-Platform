@@ -2,6 +2,7 @@
 
 A  FastAPI project that analyzes sales data, customer feedback and a PDF market report. It calculates KPIs, identifies trends and risks, supports scenario analysis and uses Gemini for executive summaries and business questions.
 
+
 ## Features
 
 - Sales KPI calculation
